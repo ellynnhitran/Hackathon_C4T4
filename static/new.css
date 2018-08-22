@@ -79,3 +79,12 @@ flex-direction: row;
     margin-top: 25px;
     margin-bottom: 18px;
 }
+.line{
+    background-color: rgb(0, 0, 0);
+    width: 192px;
+    height: 2px;
+    margin: 0 auto;
+}
+.img {
+    border-radius: 50%;
+}
