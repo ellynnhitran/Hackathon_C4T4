@@ -1,0 +1,81 @@
+html,body,#root {
+    min-height : 100vh; 
+
+}
+
+body{
+    margin-left: 0px;
+}
+
+#season {
+    text-align: center;
+    left: 0px;
+    width: 100%;
+    height: 500px;
+    background-image: url(bg.jpg);
+    background-size: 100%;
+
+}
+#text {
+    font-size: 200px;
+    color: aliceblue;
+    word-wrap: break-word;
+    text-align: start;
+    pointer-events: none;
+    left: 0px;
+    width: 980px;
+    position: absolute;
+    top: 10px;
+    height: 171px;
+    margin-left: calc((100% - 980px) * 1);
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+}
+
+#page-content{
+display: flex;
+flex-wrap: wrap;
+border-top: 600px;
+justify-content: space-around;
+box-sizing: border-box;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-direction: row;
+
+}
+.left-collumn{
+    width: 33.33%;
+    text-align: center;
+    margin-bottom: 50px;
+
+}
+.right-collumn {
+    width: 33.33%;
+    text-align: center;
+    margin-bottom: 50px;
+
+}
+.middle-collumn {
+    width: 33.33%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.column-item {
+    font-family:'Roboto Slab', serif;
+    color: rgb(119, 36, 96);
+    font-size: 20px;
+    width: 232px;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-bottom: 18px;
+}
+.collumn-title{
+    font-family:'Roboto Slab', serif;
+    color: rgb(119, 36, 96);
+    font-size: 40px;
+    width: 232px;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-bottom: 18px;
+}
