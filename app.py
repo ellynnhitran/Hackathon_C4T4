@@ -9,5 +9,9 @@ def home():
 def pagecon():
     return render_template("pagecon.html")
 
+@app.route("/test")
+def test():
+    return render_template("index.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
