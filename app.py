@@ -3,11 +3,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("new.html")
 
 @app.route("/pagecon")
 def pagecon():
     return render_template("pagecon.html")
+@app.route("/pagecon2")
+def pagecon2():
+    return render_template("pagecon2.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
