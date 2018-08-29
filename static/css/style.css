@@ -1,0 +1,15 @@
+.bigsize {
+  font-size: 100px;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.background-page1{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../background/bg5.jpg');
+}
