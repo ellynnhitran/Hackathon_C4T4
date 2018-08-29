@@ -1,5 +1,12 @@
-.bigsize {
-  font-size: 100px;
+/* .bigsize {
+  font-size: 150px;
+  
+
+} */
+.healthyfood{
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+
 }
 
 html,
@@ -11,5 +18,45 @@ body {
 .background-page1{
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url('../background/bg7.jpg');
+  background-attachment: fixed;
+  font-size: 150px;
+}
+
+.intro {
+  font-size: 100px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.bg2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../background/bg6.jpg');
+  background-attachment: fixed;
+  height: 600px;
+}
+
+.bg3 {
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url('../background/bg5.jpg');
+  /* background-attachment: fixed; */
+  height: 600px;
+}
+
+.bg4 {
+  background-image: url('../background/bg8.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+.bg9 {
+  background-image: url('../background/bg7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+
+  height: 800px;
 }
