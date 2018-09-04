@@ -1,0 +1,27 @@
+#BioProfile{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+    justify-content: space-around;
+    color: black;
+    line-height: 1.2;
+    letter-spacing: -.4px;
+    font-family: "Segoe UI", "Roboto Oxygen-Sans", "“Fira Sans”", "“Droid Sans”", "Helvetica Neue", Helvetica, "\\30D2ラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "\\30E1イリオ", Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif;
+}
+body {
+    font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", arial, sans-serif;
+    color: #211922;
+    font-size: 12px;
+}
+img {
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+}
+#page-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}

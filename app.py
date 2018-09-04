@@ -55,5 +55,8 @@ def pagecon2(getID):
 def test():
     return render_template("index.html")
 
+@app.route("/profilepage")
+def profilepage():
+    return render_template("profilepage.html")
 if __name__ == "__main__":
     app.run(debug=True)
