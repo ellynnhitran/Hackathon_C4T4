@@ -32,7 +32,12 @@ body {
 .intro2 {
   font-size: 70px;
   font-family: 'Lobster', cursive;
+  color: antiquewhite;
+}
 
+.intro3 {
+  font-size: 70px;
+  font-family: 'Lobster', cursive;
 }
 
 .text-choose {
@@ -48,6 +53,39 @@ body {
   font-style: italic;
   font-size: 20px;
 }
+.fourSeason{
+  width:500px;
+  height: 275px;
+  transition: transform .2s;
+}
+
+.fourSeason:hover{
+  transform: scale(1.1);
+}
+.spring{
+  background-image: url('../xuan1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.summer{
+  background-image: url('../summer.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.autumn{
+  background-image: url('../autumn.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.winter{
+  background-image: url('../winter.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 
 .bg2 {
@@ -83,6 +121,15 @@ body {
   height: 800px;
 }
 
-.spring {
-  background-image: url()
+.fit{
+  object-fit: contain;
 }
+.rowImg{
+  width: 40%;
+}
+
+/* .spring {
+  image: url("../static/xuan1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
