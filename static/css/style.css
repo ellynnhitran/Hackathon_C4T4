@@ -24,9 +24,22 @@ body {
 }
 
 .intro {
-  font-size: 100px;
+  font-size: 120px;
   font-family: 'Cormorant Garamond', serif;
 }
+
+.text-intro {
+  font-family: 'Lobster', cursive;
+
+}
+
+.text-paragraph {
+  font-family: 'Pattaya', sans-serif;
+
+  font-style: italic;
+  font-size: 20px;
+}
+
 
 .bg2 {
   background-repeat: no-repeat;
@@ -45,14 +58,14 @@ body {
 }
 
 .bg4 {
-  background-image: url('../background/bg8.png');
+  background-image: url('../background/bg8.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
 }
 
 .bg9 {
-  background-image: url('../background/bg7.jpg');
+  background-image: url('../background/bg10.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

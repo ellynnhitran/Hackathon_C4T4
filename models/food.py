@@ -5,3 +5,4 @@ class Food(Document):
   img = StringField()
   nguyenlieu = StringField()
   cachlam = StringField()
+  dish = StringField()
