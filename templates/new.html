@@ -48,50 +48,50 @@
                 <div class = "collumn-title">
                     <h2>Sáng</h2>
                 </div>
-
+                {% for food in list_food_breakfast_html %}
                 <div class = "column-content">
                         <div class="column-item">
-                            <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
+                            <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                             <h3>food</h3>
                             <div class = "line"></div>
-                            <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
+                            <!-- <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
                             <h3>food</h3>
-                            <div class = "line"></div>
+                            <div class = "line"></div> -->
                         </div>
                 </div>
+                {% endfor %}
             </div>
             <div class = "middle-collumn">
                 <div class = "collumn-title">
-                    <h2>Sáng</h2>
+                    <h2>Trua</h2>
                 </div>
-        
+                {% for food in list_food_lunch_html %}
                 <div class = "column-content">
                     <div class="column-item">
-                        <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
+                        <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
                         <h3>food</h3>
                         <div class = "line"></div>
-                        <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
-                        <h3>food</h3>
-                        <div class = "line"></div>
+                        
                     </div>
                 </div>
+                {% endfor %}
+
             </div>
 
             <div class = "right-collumn">
                 <div class = "collumn-title">
-                    <h2>Sáng</h2>
+                    <h2>Toi</h2>
                 </div>
-            
+                {% for food in list_food_dinner_html %}
                 <div class = "column-content">
                     <div class="column-item">
-                        <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
+                        <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
                         <h3>food</h3>
                         <div class = "line"></div>
-                        <a href="https://placeholder.com"><img class ="img" src="https://via.placeholder.com/350x150"></a>
-                        <h3>food</h3>
-                        <div class = "line"></div>
+                {% endfor %}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
