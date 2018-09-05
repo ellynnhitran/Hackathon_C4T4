@@ -92,3 +92,11 @@ position: relative;
     height: 200px;
     border-radius: 50%;
 }
+
+.background-page1{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../background/bg7.jpg');
+    /* background-attachment: fixed; */
+    /* font-size: 150px; */
+  }
