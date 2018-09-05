@@ -4,7 +4,7 @@ from random import *
 import mlab
 import bson
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = "xp{v~8Zp8jcxj2wd`;5"
 mlab.connect()
 
 @app.route("/")
@@ -58,5 +58,33 @@ def test():
 @app.route("/profilepage")
 def profilepage():
     return render_template("profilepage.html")
+
+@app.route("/login" , methods = [ 'GET', 'POST'])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    elif request.method == "POST": 
+        users = User.objects()
+        print(users)
+        form = request.form 
+        email = form ['Email']
+        password = form ['password']
+        flag = False
+        for user in users:
+            if email == user.username and password == user.password: 
+            # valid credential
+                flag = True
+                
+        if (flag):
+            session ['Email'] = email
+            return redirect('/profilepage')
+        else:
+            flash ("Username or Password Wrong!")
+            return render_template("login.html")
+ 
+@app.route("/signup", methods=['GET', 'POST'])
+def signup():
+    return render_template("signup.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
