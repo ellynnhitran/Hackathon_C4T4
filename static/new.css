@@ -14,22 +14,22 @@ body{
     height: 500px;
 }
 .spring {
-    background-image: url(xuan1.jpg);
+    background-image: url(spring2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 .winter {
-    background-image: url(winter.jpg);
+    background-image: url(winter2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 .autumn {
-    background-image: url(autumn.jpg);
+    background-image: url(autumn2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 .summer {
-    background-image: url(summer.jpg);
+    background-image: url(summer2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -37,8 +37,10 @@ body{
 .text-h1{
     font-size: 200px;
     color: aliceblue;
-    font-family: Arial,Helvetica,sans-serif;
-    font-weight: bold;
+    /* font-family: Arial,Helvetica,sans-serif; */
+    font-family: 'Lobster', cursive;
+/* 
+    font-weight: bold; */
 }
 #text {
     font-size: 200px;

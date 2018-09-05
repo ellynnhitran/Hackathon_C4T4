@@ -29,34 +29,10 @@ def option(season):
     list_food_breakfast = Food.objects(dish="breakfast", season = season)
     list_food_lunch = Food.objects(dish="lunch",season = season)
     list_food_dinner = Food.objects(dish="dinner", season = season)
-    count = 0
-    _5FoodBreakfast = []
-    for food in list_food_breakfast:
-        if (count < 5):
-            _5FoodBreakfast.append(choice(list_food_breakfast))
-            count += 1
-        else:
-            count = 0
-            break
-    _5FoodLunch = []
-    for food in list_food_lunch:
-        if (count < 5):
-            _5FoodLunch.append(choice(list_food_lunch))
-            count += 1
-        else:
-            count = 0
-            break
-    _5FoodDinner = []
-    for food in list_food_dinner:
-        if (count < 5):
-            _5FoodDinner.append(choice(list_food_dinner))
-            count += 1
-        else:
-            count = 0
-            break
-    return render_template("new.html", list_food_breakfast_html = _5FoodBreakfast,
-    list_food_lunch_html= _5FoodLunch,
-    list_food_dinner_html=_5FoodDinner, img_season=season)
+
+    return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
+    list_food_lunch_html= list_food_lunch,
+    list_food_dinner_html=list_food_dinner, img_season=season)
 
 @app.route("/profilepage")
 def profilepage():
