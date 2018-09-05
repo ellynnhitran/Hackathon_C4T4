@@ -6,6 +6,7 @@ class Food(Document):
   nguyenlieu = StringField()
   cachlam = StringField()
   dish = StringField()
+  season = StringField()
 
 class User(Document):
   username = StringField(max_length=50)
