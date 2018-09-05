@@ -64,25 +64,25 @@ body {
 .fourSeason:hover{
   transform: scale(1.1);
 }
-.spring{
+.spring1{
   background-image: url('../xuan1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.summer{
+.summer1{
   background-image: url('../summer.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.autumn{
+.autumn1{
   background-image: url('../autumn.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.winter{
+.winter1{
   background-image: url('../winter.jpg');
   background-repeat: no-repeat;
   background-size: cover;
