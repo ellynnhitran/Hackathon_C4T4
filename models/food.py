@@ -9,6 +9,8 @@ class Food(Document):
   season = StringField()
 
 class User(Document):
-  username = StringField(max_length=50)
+  email = StringField(max_length=50)
   password = StringField()
+  first_name = StringField()
+  last_name = StringField()
   favorite = ListField(ReferenceField(Food,reverse_delete_rule=CASCADE))
