@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- <title>Healthy Foodie</title>
+    {% include 'metadata.html' %} -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Healthy Foodie</title>
     {% include 'metadata.html' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/pagecon2.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,10 +39,10 @@
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#myModal"  href="{{url_for('contribute')}}">Đóng góp</a>
-                            <!-- {% include 'modalform.html' %} -->
+                            {% include 'modalform.html' %}
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
+                            <a class="nav-link" href="{{url_for('home')}}">Profile</a>
                           </li>
                     <li class="nav-item">
                             <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
@@ -42,7 +50,7 @@
                   </ul>
                 </div>
               </nav>
-    <div id = "root">
+    <div id = "root header">
         <div id = "season" class="{{img_season}} d-flex justify-content-center align-items-center">
             <h1 class="text-h1">{{img_season}}</h1>
         </div>
