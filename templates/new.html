@@ -14,17 +14,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Hôm nay ăn gì?
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Xuân</a>
-                        <a class="dropdown-item" href="#">Hạ</a>
-                        <a class="dropdown-item" href="#">Thu</a>
-                        <a class="dropdown-item" href="#">Đông</a>
+                        <a class="dropdown-item" href="{{url_for('option',season = 'spring')}}">Xuân</a>
+                        <a class="dropdown-item" href="{{url_for('option',season = 'summer')}}">Hạ</a>
+                        <a class="dropdown-item" href="{{url_for('option',season = 'autumn')}}">Thu</a>
+                        <a class="dropdown-item" href="{{url_for('option',season = 'winter')}}">Đông</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
@@ -33,16 +33,19 @@
                       <a class="nav-link disabled" href="#">Đóng góp</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Follow</a>
+                            <a class="nav-link disabled" href="#">Profile</a>
+                          </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
                           </li>
                   </ul>
                 </div>
               </nav>
     <div id = "root">
-        <div id = "season">
-            <h1 id="text">Spring</h1>
+        <div id = "season" class="{{img_season}} d-flex justify-content-center align-items-center">
+            <h1 class="text-h1">{{img_season}}</h1>
         </div>
-        <div id="page-content">
+        <div id="page-content" class="container">
             <div class = "left-collumn">
                 <div class = "collumn-title">
                     <h2>Sáng</h2>
@@ -51,7 +54,7 @@
                 <div class = "column-content">
                         <div class="column-item">
                             <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
-                            <h3>food</h3>
+                            <h3>{{food.title}}</h3>
                             <div class = "line"></div>
                             <!-- <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
                             <h3>food</h3>
@@ -62,30 +65,32 @@
             </div>
             <div class = "middle-collumn">
                 <div class = "collumn-title">
-                    <h2>Trua</h2>
+                    <h2>Trưa</h2>
                 </div>
+               
                 {% for food in list_food_lunch_html %}
                 <div class = "column-content">
                     <div class="column-item">
-                        <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
-                        <h3>food</h3>
+                        <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                        <h3>{{food.title}}</h3>
                         <div class = "line"></div>
-                        
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
+                
+                
 
             </div>
 
             <div class = "right-collumn">
                 <div class = "collumn-title">
-                    <h2>Toi</h2>
+                    <h2>Tối</h2>
                 </div>
                 {% for food in list_food_dinner_html %}
                 <div class = "column-content">
                     <div class="column-item">
-                        <a href="https://placeholder.com"><img class ="img" src="{{food.img}}"></a>
-                        <h3>food</h3>
+                        <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                        <h3>{{food.title}}</h3>
                         <div class = "line"></div>
                 {% endfor %}
                     </div>

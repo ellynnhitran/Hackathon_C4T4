@@ -67,16 +67,14 @@
   
 
   <div class=" bg9">
-    <div class="d-flex justify-content-center"><p class="text-intro intro span3 wow flipInX center" >Giới Thiệu</p></div>
+    <div class="d-flex justify-content-center"><p class="intro1 span3 wow flipInX center" >Giới Thiệu</p></div>
     <div>
         <div class="container-fluid">
             <div class="row d-flex justify-content-center">
-              <div class="col-md-7 bg2 rounded">
-                One of three columns
+              <div class="col-md-7 bg2 ">
+                
               </div>
-              <!-- <div class="ml-2 col-md-4 bg3">
-                Two of three columns
-              </div> -->
+              
               <div class="ml-3 col-md-4 bg4 text-paragraph rounded">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vero corporis veritatis quam et ducimus, perferendis, deleniti perspiciatis iusto explicabo obcaecati? Earum porro repellat numquam culpa, distinctio ratione eveniet illum?
 
@@ -89,16 +87,49 @@
 
   <div class="mt-5 p-2">
     <div class="d-flex justify-content-center">
-      <p class="intro span3 wow flipInX center"> Chọn mùa trong năm </p>
+      <p class="intro3 span3 wow flipInX center"> Chọn mùa trong năm </p>
     </div>
-    <div class="d-flex flex-column align-items-center">
-      <div><button type="button" class="btn btn-primary">Mùa Xuân</button></div>
-      <img src="../static/shapeImg/1.png">
-      <div><button type="button" class="btn btn-primary">Mùa Hạ</button></div>
-      <img src="../static/shapeImg/1.png">
-      <div><button type="button" class="btn btn-primary">Mùa Thu</button></div>
-      <img src="../static/shapeImg/1.png">
-      <div><button type="button" class="btn btn-primary">Mùa Đông</button></div>
+    
+    <div>
+        <div class="d-flex justify-content-around">
+                <div>
+                  <a class="effect" href="{{url_for('option',season = 'spring')}}">  
+                  <div style=" background-color: red;" class=" d-flex justify-content-center align-items-center fourSeason rounded spring1 ">
+                    <p class="intro2"> Spring </p>
+                  </div>
+                    </a>
+
+                    <a class="effect" href="{{url_for('option',season = 'summer')}}">
+                      <div style="background-color: red;" class="d-flex justify-content-center align-items-center fourSeason mt-4 text-paragraph summer1 rounded">
+                          <p class="intro2"> Summer </p>
+
+                      </div>
+                    </a>
+                </div>
+              
+                <div>
+                    <a class="effect" href="{{url_for('option',season = 'autumn')}}">
+                    <div style=" width:500px; height:275px; background-color: red;" class="d-flex justify-content-center align-items-center fourSeason text-paragraph autumn1 rounded">
+                        <p class="intro2"> Autumn </p>
+                        <!-- <img style=" width:500px; height:275px" src="../static/autumn.jpg" alt=""> -->
+                      </div>
+                    </a>
+                      <!-- <div class="ml-2 col-md-4 bg3">
+                        Two of three columns
+                      </div> -->
+                      <a class="effect" href="{{url_for('option',season = 'winter')}}">
+                      <div style=" width:500px; height:275px; background-color: red;" class="d-flex justify-content-center align-items-center fourSeason mt-4 text-paragraph winter1 rounded">
+                          <p class="intro2"> Winter </p>
+                          <!-- <img style=" width:500px; height:275px" src="../static/winter.jpg" alt=""> -->
+                      </div>
+                      </a>
+                </div>
+              
+                
+              
+
+          </div>
+            
     </div>
 
   </div>
