@@ -1,27 +1,62 @@
-#BioProfile{
-    margin: 20px;
+html,body,#root {
+    min-height : 100vh; 
+    /* overflow-y: hidden */
+}
+
+/* * {
+    border: 1px rgb(39, 39, 129) dashed
+} */
+body{
+    background-color: aliceblue;
+    background-size: 100%;
+    margin-left: 0px;
+}
+#root {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 800px;
+    flex-flow : row;
+}
+#sidebar {
+    min-width: 350px;
+    justify-content: center;
+}
+#BioProfile {
+    margin-left:20px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+}
+
+#main_panel {
+    flex-basis: 100%;
+    padding-left: 40px;
+    /* overflow-y: scroll */
+}
+#bookmark {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    left: 0px;
     width: 100%;
-    justify-content: space-around;
-    color: black;
-    line-height: 1.2;
-    letter-spacing: -.4px;
-    font-family: "Segoe UI", "Roboto Oxygen-Sans", "“Fira Sans”", "“Droid Sans”", "Helvetica Neue", Helvetica, "\\30D2ラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "\\30E1イリオ", Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif;
-}
-body {
-    font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", arial, sans-serif;
-    color: #211922;
-    font-size: 12px;
-}
-img {
-    width:200px;
     height: 200px;
-    border-radius: 50%;
+    background-image: url(header.jpg);
+    background-size: 100%;
 }
 #page-content {
+    margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+}
+.saved-post {
+    margin-bottom: 24px;
+    margin-right: 26px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+#img {
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
 }
