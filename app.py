@@ -44,13 +44,12 @@ def login():
         return render_template("login.html")
     elif request.method == "POST": 
         users = User.objects()
-        print(users)
         form = request.form 
         email = form ['Email']
         password = form ['password']
         flag = False
         for user in users:
-            if email == user.username and password == user.password: 
+            if email == user.email and password == user.password: 
             # valid credential
                 flag = True
                 
@@ -69,7 +68,17 @@ def logout():
  
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
-    return render_template("signup.html")
+    if request.method == "GET":
+        return render_template("signup.html")
+    elif request.method == "POST": 
+        form = request.form 
+        email = form ['Email']
+        password = form ['password']
+        first_name = form ["Firstname"]
+        last_name = form ["Lastname"]
+        createUser = User(email=email,password=password,first_name=first_name,last_name=last_name,favorite = [])
+        createUser.save()
+        return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(debug=True)
