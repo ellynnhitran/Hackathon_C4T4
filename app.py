@@ -13,9 +13,9 @@ mlab.connect()
 def home():
     return render_template("index.html")
 
-@app.route("/pagecon")
-def pagecon():
-    return render_template("pagecon.html")
+@app.route("/contribute")
+def contribute():
+    return render_template("contribute.html")
 
 @app.route("/pagecon2/<string:getID>")
 def pagecon2(getID):

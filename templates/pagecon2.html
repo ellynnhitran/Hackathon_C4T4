@@ -37,13 +37,14 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Đóng góp</a>
+            <a class="nav-link" data-toggle="modal" data-target="#myModal"  href="{{url_for('contribute')}}">Đóng góp</a>
+            {% include 'modalform.html' %}
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" href="#">Profile</a>
           </li>
         <li class="nav-item">
-                <a class="nav-link disabled" href="#">Follow</a>
+                <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
               </li>
       </ul>
     </div>
