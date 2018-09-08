@@ -6,7 +6,7 @@
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Healthy Foodie</a>
+                <a class="navbar-brand" href="{{url_for('home')}}">Healthy Foodie</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#myModal"  href="{{url_for('contribute')}}">Đóng góp</a>
-                            {% include 'modalform.html' %}
+                            <!-- {% include 'modalform.html' %} -->
                     </li>
                     <li class="nav-item">
                             <a class="nav-link disabled" href="#">Profile</a>
@@ -51,8 +51,9 @@
                 <div class = "collumn-title">
                     <h2>Sáng</h2>
                 </div>
-                {% for food in list_food_breakfast_html %}
+                
                 <div class = "column-content">
+                        {% for food in list_food_breakfast_html %}
                         <div class="column-item">
                             <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                             <h3>{{food.title}}</h3>
@@ -61,22 +62,24 @@
                             <h3>food</h3>
                             <div class = "line"></div> -->
                         </div>
+                        {% endfor %}
                 </div>
-                {% endfor %}
+                
             </div>
             <div class = "middle-collumn">
                 <div class = "collumn-title">
                     <h2>Trưa</h2>
                 </div>
                
-                {% for food in list_food_lunch_html %}
+                
                 <div class = "column-content">
+                    {% for food in list_food_lunch_html %}
                     <div class="column-item">
                         <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                         <h3>{{food.title}}</h3>
                         <div class = "line"></div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
                 
                 
@@ -87,14 +90,15 @@
                 <div class = "collumn-title">
                     <h2>Tối</h2>
                 </div>
-                {% for food in list_food_dinner_html %}
+                
                 <div class = "column-content">
+                        {% for food in list_food_dinner_html %}
                     <div class="column-item">
                         <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                         <h3>{{food.title}}</h3>
                         <div class = "line"></div>
-                {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
 
             </div>

@@ -14,22 +14,22 @@ body{
     height: 500px;
 }
 .spring {
-    background-image: url(spring2.jpg);
+    background-image: url('../spring2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .winter {
-    background-image: url(winter2.jpg);
+    background-image: url('../winter2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .autumn {
-    background-image: url(autumn2.jpg);
+    background-image: url('../autumn2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .summer {
-    background-image: url(summer2.jpg);
+    background-image: url('../summer2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -121,7 +121,7 @@ position: relative;
 .background-page1{
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../background/bg7.jpg');
+    background-image: url('../../background/bg7.jpg');
     /* background-attachment: fixed; */
     /* font-size: 150px; */
   }

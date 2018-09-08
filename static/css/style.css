@@ -65,25 +65,25 @@ body {
   transform: scale(1.1);
 }
 .spring1{
-  background-image: url('../xuan1.jpg');
+  background-image: url('../spring2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .summer1{
-  background-image: url('../summer.jpg');
+  background-image: url('../summer2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .autumn1{
-  background-image: url('../autumn.jpg');
+  background-image: url('../autumn2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .winter1{
-  background-image: url('../winter.jpg');
+  background-image: url('../winter2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
