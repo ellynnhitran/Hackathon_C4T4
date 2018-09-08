@@ -33,7 +33,10 @@
                       <a class="nav-link disabled" href="#">Đóng góp</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Follow</a>
+                            <a class="nav-link disabled" href="#">Profile</a>
+                          </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
                           </li>
                   </ul>
                 </div>
@@ -64,16 +67,18 @@
                 <div class = "collumn-title">
                     <h2>Trưa</h2>
                 </div>
+               
                 {% for food in list_food_lunch_html %}
                 <div class = "column-content">
                     <div class="column-item">
                         <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                         <h3>{{food.title}}</h3>
                         <div class = "line"></div>
-                        
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
+                
+                
 
             </div>
 

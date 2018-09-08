@@ -40,6 +40,9 @@
           <a class="nav-link disabled" href="#">Đóng góp</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link disabled" href="#">Profile</a>
+          </li>
+        <li class="nav-item">
                 <a class="nav-link disabled" href="#">Follow</a>
               </li>
       </ul>
@@ -54,29 +57,43 @@
                 <img src="{{food.img}}" alt="Món ăn">
                 <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
                 <h4>Cách làm: {{food.cachlam}}</h4>
-            </div>
+                <button id="button">Bookmark this page</button>
+        </div>
         <div id ="main">
         <div id="side-column">
             <h2>Có thể bạn quan tâm</h2>
             <div class="side-column-item">
-                <img src="https://via.placeholder.com/140x100" alt="Món ăn">
-                <h3>Món ăn</h3>
+                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                <h3>{{food.title}}</h3>
+                <div class = "line"></div>
             </div>
 
             <div class="side-column-item">
-                <img src="https://via.placeholder.com/140x100" alt="Món ăn">
-                <h3>Món ăn</h3>
+                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                <h3>{{food.title}}</h3>
+                <div class = "line"></div>
             </div>
 
             <div class="side-column-item">
-                <img src="https://via.placeholder.com/140x100" alt="Món ăn">
-                <h3>Món ăn</h3>
+                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                <h3>{{food.title}}</h3>
+                <div class = "line"></div>
+                <!-- <img src="https://via.placeholder.com/140x100" alt="Món ăn">
+                <h3>Món ăn</h3> -->
             </div>
         </div>
+        
 
-        <div>
-          <button id="button">Bookmark this page</button>
-        </div>
+        <!-- {% for food in list_food_dinner_html %}
+        <div class = "column-content">
+            <div class="column-item">
+                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
+                <h3>{{food.title}}</h3>
+                <div class = "line"></div>
+        {% endfor %}
+        <div> -->
+
+          
       </div>
     </div>
     
