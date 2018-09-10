@@ -1,7 +1,7 @@
  <!-- Modal -->
  <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-        
+          {% if _flag %}
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -37,7 +37,26 @@
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
-          
+          <!-- Content -->
+          {% else %}
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title"></h5>
+              </div>
+              <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+                      <div id = "header">
+                                  <h2 id="post-title">Hãy Login để có thể đóng góp! </h2>
+                              </div>
+                            <div id="root">
+                              <a href="{{url_for('login')}}"><button type="button" class="btn btn-primary">Login</button></a>
+                              <a href="{{url_for('signup')}}"><button type="button" class="btn btn-primary">Sign Up</button></a>
+                            </div>  
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          {% endif %}
         </div>
       </div>
       </div>

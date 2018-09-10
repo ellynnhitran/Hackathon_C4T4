@@ -9,6 +9,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "xp{v~8Zp8jcxj2wd`;5"
 mlab.connect()
 
+_flag = False
+
 @app.route("/", methods = ["POST", "GET"])
 def home():
     return render_template("index.html")
@@ -19,20 +21,22 @@ def contribute():
 
 @app.route("/pagecon2/<string:getID>")
 def pagecon2(getID):
+    global _flag
     query_food_with_id = Food.objects().with_id(getID)
     print(query_food_with_id)
 
-    return render_template("pagecon2.html", food = query_food_with_id)
+    return render_template("pagecon2.html", food = query_food_with_id, _flag = _flag)
 
 @app.route("/option/<string:season>")
 def option(season):
+    global _flag
     list_food_breakfast = Food.objects(dish="breakfast", season = season)
     list_food_lunch = Food.objects(dish="lunch",season = season)
     list_food_dinner = Food.objects(dish="dinner", season = season)
 
     return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
     list_food_lunch_html= list_food_lunch,
-    list_food_dinner_html=list_food_dinner, img_season=season)
+    list_food_dinner_html=list_food_dinner, img_season=season, _flag = _flag)
 
 @app.route("/profilepage")
 def profilepage():
@@ -40,6 +44,7 @@ def profilepage():
 
 @app.route("/login" , methods = [ 'GET', 'POST'])
 def login():
+    global _flag
     if request.method == "GET":
         return render_template("login.html")
     elif request.method == "POST": 
@@ -55,6 +60,7 @@ def login():
                 
         if (flag):
             session ['Email'] = email
+            _flag = True
             return redirect('/profilepage')
         else:
             flash ("Username or Password Wrong!")
@@ -62,7 +68,9 @@ def login():
 
 @app.route("/logout")
 def logout():
+    global _flag
     if session['Email']:
+        _flag = False
         del session['Email']
     return render_template("login.html")
  

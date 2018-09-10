@@ -121,7 +121,24 @@ position: relative;
     width:200px;
     height: 200px;
     border-radius: 50%;
+    object-fit: cover;
 }
+
+div.column-item>a>img{
+    transition: transform .2s;
+}
+
+div.column-item>a>img:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 39px -2px #1d1c1c;
+}
+
+div.column-item>a>img:active{
+    box-shadow: none;
+    transform: scale(1);
+}
+
+
 
 .background-page1{
     background-repeat: no-repeat;
