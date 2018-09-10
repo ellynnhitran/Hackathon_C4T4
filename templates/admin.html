@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'metadata.html' %}
+  <title>Document</title>
+</head>
+<body>
+  <a href="{{url_for('admin_choose',choose = 1)}}"><button type="button" class="btn btn-primary">User Manager </button></a>
+  <a href="{{url_for('admin_choose',choose = 2)}}"><button type="button" class="btn btn-primary">Food Manager </button></a>
+</body>
+</html>

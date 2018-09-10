@@ -7,6 +7,7 @@ class Food(Document):
   cachlam = StringField()
   dish = StringField()
   season = StringField()
+  checked = BooleanField()
 
 class User(Document):
   email = StringField(max_length=50)

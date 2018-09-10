@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'metadata.html' %}
+  <title>EDIT</title>
+</head>
+<body>
+    <form method="POST">
+      {% for el in user %}
+      <input type="text" name="choose" style="display:none" value="1">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input readonly type="email" name="email" value="{{el.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">First Name</label>
+          <input type="text" value="{{el.first_name}}" name="firstname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Last Name</label>
+          <input type="text" class="form-control" name="lastname" value="{{el.last_name}}" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" value="{{el.password}}" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% endfor %}
+      </form>
+</body>
+</html>
