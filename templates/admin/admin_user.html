@@ -5,6 +5,7 @@
   <title>Document</title>
 </head>
 <body>
+  <a href="{{url_for('admin')}}"><button class="m-3 btn btn-primary "> Back to ADMIN control </button></a>
   <table class="table table-hover table-striped">
     <thead>
       <tr>
@@ -20,7 +21,6 @@
         <td>{{user.first_name}}</td>
         <td>{{user.last_name}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.id}}</td>
         <td>
           <a href="{{url_for('admin_edit', choose = 1, id = user.id)}}">Sửa</a>
           <span> / </span>

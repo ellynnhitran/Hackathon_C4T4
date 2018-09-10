@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% include 'metadata.html' %}
   <title>Document</title>
 </head>
 <body>
-    ADMIN FOOD
+    <a href="{{url_for('admin')}}"><button class="m-3 btn btn-primary "> Back to ADMIN control </button></a>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Nguyên Liệu</th>
+        <th>Cách Làm</th>
+        <th>Buổi</th>
+        <th>Mùa</th>
+        <th>Đã Duyệt</th>           
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for each_food in food %}
+      <tr>
+        <td>{{each_food.title}}</td>
+        <td><img style="width: 30px; height: 30px;" src="{{each_food.img}}" alt=""></td>
+        <td>{{each_food.nguyenlieu}}</td>
+        <td>{{each_food.cachlam}}</td>
+        <td>{{each_food.dish}}</td>
+        <td>{{each_food.season}}</td>
+        {% if each_food.checked %}
+        <td><i class="fas fa-check"></i></td>
+        {% else %}
+        <td><i class="fas fa-ban"></i></td>
+        {% endif %}        
+        <td>
+
+          {% if each_food.checked %}
+          <a href="{{url_for('checking',id = each_food.id)}}">Bỏ duyệt</a>
+          {% else %}
+          <a href="{{url_for('checking',id = each_food.id)}}">Duyệt</a>
+          {% endif %} 
+          <span> / </span>
+          <a href="{{url_for('admin_edit', choose = 2, id = each_food.id)}}">Sửa</a>
+          <span> / </span>
+          <a href="{{url_for('admin_delete', choose = 2, id = each_food.id)}}">Xóa</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 </html>

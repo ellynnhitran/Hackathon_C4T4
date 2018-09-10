@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'metadata.html' %}
+  <title>EDIT</title>
+</head>
+<body class="p-2">
+    <a href="{{url_for('admin_choose',choose = 2)}}"><button class="btn btn-primary"> Back to ADMIN food</button></a>
+    <form method="POST">
+      {% for el in food %}
+      <input type="text" name="choose" style="display:none" value="2">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Title</label>
+          <input type="text" name="title" value="{{el.title}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Link ảnh</label>
+          <input type="text" value="{{el.img}}" name="img" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label>Nguyên liệu</label>
+          <div>
+              <textarea name="nguyenlieu" id="exampleInputPassword1" cols="100" rows="5">{{el.nguyenlieu}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Cách làm</label>
+            <div>
+                <textarea name="cachlam" id="exampleInputPassword1" cols="100" rows="10">{{el.cachlam}}</textarea>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label for="exampleFormControlSelect1">Bữa</label>
+                <select name="bua" class="form-control" id="exampleFormControlSelect1">
+                    <option value={{dish_select}} selected>{{dish_select}}</option>
+                    {% for each_dish in dish %}
+                    <option value={{each_dish}}>{{each_dish}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+        <div class="form-group">
+                <label for="2">Mùa</label>
+                <select name="mua" class="form-control" id="2">
+                        <option value={{select_season}} selected>{{select_season}}</option>
+                        {% for each_season in season %}
+                        <option value={{each_season}}>{{each_season}}</option>
+                        {% endfor %}
+                </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% endfor %}
+      </form>
+</body>
+</html>

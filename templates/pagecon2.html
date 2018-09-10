@@ -59,7 +59,7 @@
                 <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
                 <h4>Cách làm: {{food.cachlam}}</h4>
           
-              <button id="button" >Lưu món này ^^ </button>
+             <a href="{{url_for('fav', id = food.id)}}"><button id="button" class="btn btn-primary">Lưu món này ^^ </button></a>
           
                 
         </div>

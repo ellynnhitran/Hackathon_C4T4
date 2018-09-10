@@ -45,6 +45,9 @@
                     <input required type="password" name = "password" class="block">
                 </div>
             </div>
+            {% for msg in get_flashed_messages() %} 
+            <div class="d-flex justify-content-center"><p style="color:red"> {{ msg }} </p></div>
+            {% endfor %}
             <button class="btn">Sign up</button>
         </form>
     </div>
