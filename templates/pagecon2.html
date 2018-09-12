@@ -19,15 +19,15 @@
 
             <div id="post-content" >
                 <img src="{{food.img}}" alt="Món ăn">
-                <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
-                <h4>Cách làm: {{food.cachlam}}</h4>
+                <h4>**Nguyên liệu: {{food.nguyenlieu}}</h4>
+                <h4>**Cách làm: {{food.cachlam}}</h4>
           
              <a href="{{url_for('fav', id = food.id)}}"><button id="button" class="btn btn-primary">Lưu món này ^^ </button></a>
           
-                
-        </div>
+            </div>
         
-        
+       
+         
 
         <div id ="main">
         <div id="side-column">
@@ -48,8 +48,7 @@
                 <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
                 <h3>{{food.title}}</h3>
                 <div class = "line"></div>
-                <!-- <img src="https://via.placeholder.com/140x100" alt="Món ăn">
-                <h3>Món ăn</h3> -->
+               
             </div>
         </div>
         
@@ -62,6 +61,7 @@
                 <div class = "line"></div>
         {% endfor %}
         <div> -->
+               
 
           
       </div>
