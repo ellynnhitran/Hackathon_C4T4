@@ -8,6 +8,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+       
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,7 +28,7 @@
               {% include 'modalform.html' %}
       </li>
       <li class="nav-item">
-              <a class="nav-link" href="{{url_for('home')}}">Profile</a>
+              <a class="nav-link" href="{{url_for('profilepage')}}">Profile</a>
             </li>
       <li class="nav-item">
               <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
@@ -35,8 +36,19 @@
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('profilepage')}}">Hello {{user_current.first_name}} {{ user_current.last_name }}</span></a>
+          {% if user_current != {} %}
+          <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, {{user_current.first_name}} {{ user_current.last_name }} <span class="sr-only">(current)</span></a>
+          {% else %}
+          <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, Guide <span class="sr-only">(current)</span></a>
+          {% endif %}
         </li>
+        
+        {% if user_current != {} %}
+        <a href="{{url_for('logout')}} "><button>Logout</button></a>
+        {% else %}
+        <a href="{{url_for('login')}} "><button>Login</button></a>
+        <a href="{{url_for('signup')}} "><button>Sign Up</button></a>
+        {% endif %}
     </ul>
   </div>
 </nav>
