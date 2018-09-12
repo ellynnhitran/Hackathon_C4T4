@@ -115,14 +115,15 @@ def pagecon2(getID):
 
 @app.route("/option/<string:season>")
 def option(season):
-    global _flag
+    global _flag, user_current
+    print(user_current)
     list_food_breakfast = Food.objects(dish="breakfast", season = season, checked=True)
     list_food_lunch = Food.objects(dish="lunch",season = season, checked=True)
     list_food_dinner = Food.objects(dish="dinner", season = season, checked=True)
 
     return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
     list_food_lunch_html= list_food_lunch,
-    list_food_dinner_html=list_food_dinner, img_season=season, _flag = _flag)
+    list_food_dinner_html=list_food_dinner, img_season=season, user_current = user_current, _flag = _flag)
 
 @app.route("/profilepage")
 def profilepage():
