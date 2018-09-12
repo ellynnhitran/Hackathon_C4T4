@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'metadata.html' %}
+  <title>Document</title>
+</head>
+<body>
+  <a href="{{url_for('admin')}}"><button class="m-3 btn btn-primary "> Back to ADMIN control </button></a>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <a href="{{url_for('admin_edit', choose = 1, id = user.id)}}">Sửa</a>
+          <span> / </span>
+          <a href="{{url_for('admin_delete', choose = 1, id = user.id)}}">Xóa</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

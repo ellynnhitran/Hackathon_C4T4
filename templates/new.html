@@ -13,43 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{{url_for('home')}}">Healthy Foodie</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Hôm nay ăn gì?
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{url_for('option',season = 'spring')}}">Xuân</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'summer')}}">Hạ</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'autumn')}}">Thu</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'winter')}}">Đông</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#myModal"  href="{{url_for('contribute')}}">Đóng góp</a>
-                            {% include 'modalform.html' %}
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('home')}}">Profile</a>
-                          </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
-                          </li>
-                  </ul>
-                </div>
-              </nav>
+    {% include 'header.html' %}
     <div id = "root header">
         <div id = "season" class="{{img_season}} d-flex justify-content-center align-items-center">
             <h1 class="text-h1">{{img_season}}</h1>
