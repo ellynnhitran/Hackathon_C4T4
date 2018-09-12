@@ -107,28 +107,34 @@ def contribute():
 
 @app.route("/pagecon2/<string:getID>")
 def pagecon2(getID):
-    global _flag
+    global _flag, user_current
     query_food_with_id = Food.objects().with_id(getID)
     print(query_food_with_id)
 
-    return render_template("pagecon2.html", food = query_food_with_id, _flag = _flag)
+    return render_template("pagecon2.html", food = query_food_with_id,user_current = user_current,  _flag = _flag)
 
 @app.route("/option/<string:season>")
 def option(season):
-    global _flag
+    global _flag, user_current
+    print(user_current)
+    print({} == None)
     list_food_breakfast = Food.objects(dish="breakfast", season = season, checked=True)
     list_food_lunch = Food.objects(dish="lunch",season = season, checked=True)
     list_food_dinner = Food.objects(dish="dinner", season = season, checked=True)
 
     return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
     list_food_lunch_html= list_food_lunch,
-    list_food_dinner_html=list_food_dinner, img_season=season, _flag = _flag)
+    list_food_dinner_html=list_food_dinner, img_season=season, user_current = user_current, _flag = _flag)
 
 @app.route("/profilepage")
 def profilepage():
     global _flag, user_current
-    if user_current is not None:
-        return render_template("profilepage.html", _flag = _flag, user_current=user_current)
+    if 'loggin' not in session:
+        return redirect(url_for('login'))
+    else:
+        if user_current is not None:
+            print(user_current)
+            return render_template("profilepage.html", _flag = _flag, user_current=user_current)
 
 @app.route("/login" , methods = [ 'GET', 'POST'])
 def login():
@@ -169,10 +175,11 @@ def fav(id):
     if user_current == {}:
         return redirect(url_for('login'))
     if 'loggin' in session:
-        user = Users(id = user_current.id)
+        user = Users.objects(id = user_current.id)
         food = Food(id = id)
-        user.favorite.append(food)
-        user.save()
+        user.update(push__favorite = food)
+        print(user[0]['favorite'])
+        user_current.favorite = user[0]['favorite']
         return redirect(url_for('pagecon2', getID = id))
     else:
         return redirect(url_for('login'))

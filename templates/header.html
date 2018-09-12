@@ -36,9 +36,19 @@
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('home')}}">Welcome, username <span class="sr-only">(current)</span></a>
+          {% if user_current != {} %}
+          <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, {{user_current.first_name}} {{ user_current.last_name }} <span class="sr-only">(current)</span></a>
+          {% else %}
+          <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, Guide <span class="sr-only">(current)</span></a>
+          {% endif %}
         </li>
-        <button>Logout</button>
+        
+        {% if user_current != {} %}
+        <a href="{{url_for('logout')}} "><button>Logout</button></a>
+        {% else %}
+        <a href="{{url_for('login')}} "><button>Login</button></a>
+        <a href="{{url_for('signup')}} "><button>Sign Up</button></a>
+        {% endif %}
     </ul>
   </div>
 </nav>

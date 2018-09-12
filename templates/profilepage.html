@@ -12,66 +12,28 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{{url_for('home')}}">Healthy Foodie</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Hôm nay ăn gì?
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{url_for('option',season = 'spring')}}">Xuân</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'summer')}}">Hạ</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'autumn')}}">Thu</a>
-                        <a class="dropdown-item" href="{{url_for('option',season = 'winter')}}">Đông</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#myModal"  href="{{url_for('contribute')}}">Đóng góp</a>
-                            {% include 'modalform.html' %}
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('login')}}">Profile</a>
-                          </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
-                          </li>
-                  </ul>
-                </div>
-              </nav>
+      {% include 'header.html' %}
 
           <div id="root">
           <div id ="side-bar">
             <div id="BioProfile">
               <img id="img" src="../static/header5.jpg" alt="Món ăn" href="http://www.placegolder.com/350x150"> 
-            
-              <h3 >Username</h3>
+              <h3 > {{user_current.first_name}} {{user_current.last_name}}</h3>
+              <h3 >{{user_current.email}}</h3>
             </div>
           </div>
+          
           <div id = "main_panel">
             <div id = "bookmark">
               <h3>Bookmark</h3>
             </div>
             <div id="page-content">
+            {% for food_in_user in user_current.favorite %}
             <div class="saved-post">
-                <h3>Món ăn</h3>
-                <img src="http://via.placeholder.com/350x150" alt="Món ăn" href="http://www.placegolder.com/350x150">
+                <h3>{{food_in_user.title}}</h3>
+               <a href="{{url_for('pagecon2', getID = food_in_user.id)}}"><img style="width: 350px; height: 150px;object-fit: cover;" class="rounded" src="{{food_in_user.img}}" alt="Món ăn" ></a>
             </div>
-
-            <div class="saved-post">
-                <h3>Món ăn</h3>
-                <img src="http://via.placeholder.com/350x150" alt="Món ăn" href="http://www.placegolder.com/350x150">
-            </div>
+            {% endfor %}
           </div>
         </div>
     </div>
