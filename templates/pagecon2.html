@@ -21,10 +21,11 @@
                 <img src="{{food.img}}" alt="Món ăn">
                 <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
                 <h4>Cách làm: {{food.cachlam}}</h4>
-          
+             {% if saved %}
+             <button id="button" class="btn btn-primary disabled">Đã lưu </button>
+             {% else %}
              <a href="{{url_for('fav', id = food.id)}}"><button id="button" class="btn btn-primary">Lưu món này ^^ </button></a>
-          
-                
+             {% endif %}
         </div>
         
         

@@ -11,6 +11,7 @@ mlab.connect()
 
 _flag = False
 user_current = {}
+page_current = None
 # ADMIN START
 @app.route("/admin")
 def admin():
@@ -107,17 +108,20 @@ def contribute():
 
 @app.route("/pagecon2/<string:getID>")
 def pagecon2(getID):
-    global _flag, user_current
+    global _flag, user_current, page_current
+    page_current = request.url
     query_food_with_id = Food.objects().with_id(getID)
-    print(query_food_with_id)
-
-    return render_template("pagecon2.html", food = query_food_with_id,user_current = user_current,  _flag = _flag)
+    saved = False
+    if (user_current != {}):
+        for food_in_user in user_current.favorite:
+            if query_food_with_id.id == food_in_user.id:
+                saved = True
+    return render_template("pagecon2.html", food = query_food_with_id, user_current = user_current,  _flag = _flag, saved=saved)
 
 @app.route("/option/<string:season>")
 def option(season):
-    global _flag, user_current
-    print(user_current)
-    print({} == None)
+    global _flag, user_current, page_current
+    page_current = request.path
     list_food_breakfast = Food.objects(dish="breakfast", season = season, checked=True)
     list_food_lunch = Food.objects(dish="lunch",season = season, checked=True)
     list_food_dinner = Food.objects(dish="dinner", season = season, checked=True)
@@ -128,17 +132,17 @@ def option(season):
 
 @app.route("/profilepage")
 def profilepage():
-    global _flag, user_current
+    global _flag, user_current, page_current
+    page_current = request.url
     if 'loggin' not in session:
         return redirect(url_for('login'))
     else:
         if user_current is not None:
-            print(user_current)
             return render_template("profilepage.html", _flag = _flag, user_current=user_current)
 
 @app.route("/login" , methods = [ 'GET', 'POST'])
 def login():
-    global _flag, user_current
+    global _flag, user_current, page_current
     if request.method == "GET":
         if 'loggin' in session:
             return redirect(url_for('home'))
@@ -159,7 +163,7 @@ def login():
         if (flag):
             session['loggin'] = True
             _flag = True 
-            return redirect(url_for('profilepage'))
+            return redirect(page_current)
 
         elif (flagAdmin):
             session['admin'] = True
@@ -186,7 +190,8 @@ def fav(id):
 
 @app.route("/logout")
 def logout():
-    global _flag, user_current
+    global _flag, user_current, page_current
+    page_current = request.url
     if 'loggin' in session:
         _flag = False
         del session['loggin']

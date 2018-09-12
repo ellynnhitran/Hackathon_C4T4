@@ -34,21 +34,21 @@
               <a class="nav-link" href="https://www.facebook.com/tran.tuenhi">Follow</a>
             </li>
     </ul>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav d-flex align-items-center">
       <li class="nav-item active">
           {% if user_current != {} %}
           <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, {{user_current.first_name}} {{ user_current.last_name }} <span class="sr-only">(current)</span></a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+        {% if user_current != {} %}
+          <a href="{{url_for('logout')}} ">Logout</a>
           {% else %}
-          <a class="nav-link" href="{{url_for('profilepage')}}">Welcome, Guide <span class="sr-only">(current)</span></a>
+          <a href="{{url_for('login')}} ">Login</a>
+          <a href="{{url_for('signup')}} ">Sign Up</a>
           {% endif %}
         </li>
         
-        {% if user_current != {} %}
-        <a href="{{url_for('logout')}} "><button>Logout</button></a>
-        {% else %}
-        <a href="{{url_for('login')}} "><button>Login</button></a>
-        <a href="{{url_for('signup')}} "><button>Sign Up</button></a>
-        {% endif %}
     </ul>
   </div>
 </nav>
