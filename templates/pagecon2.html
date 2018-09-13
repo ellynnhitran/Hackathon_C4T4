@@ -21,6 +21,9 @@
                 <img src="{{food.img}}" alt="Món ăn">
                 <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
                 <h4>Cách làm: {{food.cachlam}}</h4>
+                {% if author_with_id != {} %}
+                <h6>Người viết: {{author_with_id.first_name}} {{author_with_id.last_name}} - Email: {{author_with_id.email}}</h6>
+                {% endif %}
              {% if saved %}
              <button id="button" class="btn btn-primary disabled">Đã lưu </button>
              {% else %}
@@ -53,8 +56,6 @@
                 <h3>Món ăn</h3> -->
             </div>
         </div>
-        
-
         <!-- {% for food in list_food_dinner_html %}
         <div class = "column-content">
             <div class="column-item">

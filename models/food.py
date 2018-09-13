@@ -8,11 +8,12 @@ class Food(Document):
   dish = StringField()
   season = StringField()
   checked = BooleanField()
+  author = StringField()
 
 class Users(Document):
   email = StringField(max_length=50)
   password = StringField()
   first_name = StringField()
   last_name = StringField()
-  posted = StringField()
-  favorite = ListField(ReferenceField(Food,reverse_delete_rule=CASCADE))
+  posted = ListField(ReferenceField(Food,reverse_delete_rule=CASCADE, dbref=False))
+  favorite = ListField(ReferenceField(Food,reverse_delete_rule=CASCADE, dbref=False))

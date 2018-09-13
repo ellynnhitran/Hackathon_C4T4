@@ -33,6 +33,15 @@ def admin_choose(choose):
                 food = Food.objects()
                 return render_template("admin/admin_food.html", food = food)
 
+@app.route("/admin/2/queue", methods=['POST','GET'])
+def admin_queue():
+    if request.method == 'GET':
+        if 'admin' not in session:
+            return redirect(url_for('login'))
+        else:
+            food = Food.objects(checked=False)
+            return render_template("admin/admin_food_queue.html", food = food)
+
 @app.route('/admin/<int:choose>/delete/<id>', methods = ['GET', 'POST'])
 def admin_delete(choose,id):
     if choose == 1:
@@ -98,7 +107,7 @@ def checking(id):
     return redirect(url_for('admin_choose', choose = 2))
 
 # ADMIN_END
-@app.route("/", methods = ["POST", "GET"])
+@app.route("/")
 def home():
     return render_template("index.html")
 
@@ -106,31 +115,75 @@ def home():
 def contribute():
     return render_template("contribute.html")
 
-@app.route("/pagecon2/<string:getID>")
+@app.route("/pagecon2/<string:getID>", methods = ["POST", "GET"])
 def pagecon2(getID):
     global _flag, user_current, page_current
     page_current = request.url
-    query_food_with_id = Food.objects().with_id(getID)
-    saved = False
-    if (user_current != {}):
-        for food_in_user in user_current.favorite:
-            if query_food_with_id.id == food_in_user.id:
-                saved = True
-    return render_template("pagecon2.html", food = query_food_with_id, user_current = user_current,  _flag = _flag, saved=saved)
+    if request.method == "GET":
+        query_food_with_id = Food.objects().with_id(getID)
+        saved = False
+        if (user_current != {}):
+            for food_in_user in user_current.favorite:
+                if query_food_with_id.id == food_in_user.id:
+                    saved = True
+        if (query_food_with_id.author is not None):
+            author_with_id = Users.objects().with_id(query_food_with_id.author)
+        else:
+            author_with_id = {
+                'email': 'anonymous@gmail.com',
+                'first_name': 'Anonymous',
+                'last_name': '',  
+            }
+        return render_template("pagecon2.html", food = query_food_with_id, user_current = user_current,  _flag = _flag, saved=saved, author_with_id = author_with_id)
+    elif request.method == "POST":
+        form = request.form
+        if form['contribute'] == "3":
+            title = form['Title']
+            img = form['Image']
+            nguyenlieu = form['nguyenlieu']
+            cachlam = form['cachlam']
+            dish = form['dish']
+            season = form['season']
+            author = str(user_current.id)
+            new_food = Food(title = title, img = img, nguyenlieu = nguyenlieu, cachlam = cachlam, checked = False,dish = dish, season = season, author = author )
+            new_food.save()
+            user = Users.objects(id = user_current.id)
+            user.update(push__posted = new_food)
+            user_current.posted = user[0]['posted']
+            return redirect(request.url)
+        return redirect(request.url)
 
-@app.route("/option/<string:season>")
+@app.route("/option/<string:season>", methods = ["POST", "GET"])
 def option(season):
     global _flag, user_current, page_current
     page_current = request.path
-    list_food_breakfast = Food.objects(dish="breakfast", season = season, checked=True)
-    list_food_lunch = Food.objects(dish="lunch",season = season, checked=True)
-    list_food_dinner = Food.objects(dish="dinner", season = season, checked=True)
+    if request.method == 'GET':
+        list_food_breakfast = Food.objects(dish="breakfast", season = season, checked=True)
+        list_food_lunch = Food.objects(dish="lunch",season = season, checked=True)
+        list_food_dinner = Food.objects(dish="dinner", season = season, checked=True)
 
-    return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
-    list_food_lunch_html= list_food_lunch,
-    list_food_dinner_html=list_food_dinner, img_season=season, user_current = user_current, _flag = _flag)
+        return render_template("new.html", list_food_breakfast_html = list_food_breakfast,
+        list_food_lunch_html= list_food_lunch,
+        list_food_dinner_html=list_food_dinner, img_season=season, user_current = user_current, _flag = _flag)
+    elif request.method == "POST":
+        form = request.form
+        if form['contribute'] == "3":
+            title = form['Title']
+            img = form['Image']
+            nguyenlieu = form['nguyenlieu']
+            cachlam = form['cachlam']
+            dish = form['dish']
+            season = form['season']
+            author = str(user_current.id)
+            new_food = Food(title = title, img = img, nguyenlieu = nguyenlieu, cachlam = cachlam, checked = False,dish = dish, season = season, author = author )
+            new_food.save()
+            user = Users.objects(id = user_current.id)
+            user.update(push__posted = new_food)
+            user_current.posted = user[0]['posted']
+            return redirect(request.url)
+        return redirect(request.url)
 
-@app.route("/profilepage")
+@app.route("/profilepage", methods = ["POST", "GET"])
 def profilepage():
     global _flag, user_current, page_current
     page_current = request.url
@@ -138,7 +191,16 @@ def profilepage():
         return redirect(url_for('login'))
     else:
         if user_current is not None:
-            return render_template("profilepage.html", _flag = _flag, user_current=user_current)
+            get_user_current = Users.objects().with_id(user_current.id)
+            return render_template("profilepage.html", _flag = _flag, user_current=get_user_current)
+
+@app.route("/delete/fav/<id>")
+def delete_fav(id):
+    food = Food.objects().with_id(id)
+    get_user_current = Users.objects(id = user_current.id)
+    get_user_current.update(pull__favorite = food)
+    return redirect(url_for('profilepage'))
+
 
 @app.route("/login" , methods = [ 'GET', 'POST'])
 def login():
@@ -182,8 +244,9 @@ def fav(id):
         user = Users.objects(id = user_current.id)
         food = Food(id = id)
         user.update(push__favorite = food)
-        print(user[0]['favorite'])
+        user.update(push__posted = food)
         user_current.favorite = user[0]['favorite']
+        user_current.favorite = user[0]['posted']
         return redirect(url_for('pagecon2', getID = id))
     else:
         return redirect(url_for('login'))
