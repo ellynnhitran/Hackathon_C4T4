@@ -134,7 +134,12 @@ def pagecon2(getID):
                 'first_name': 'Anonymous',
                 'last_name': '',  
             }
-        return render_template("pagecon2.html", food = query_food_with_id, user_current = user_current,  _flag = _flag, saved=saved, author_with_id = author_with_id)
+        #Random Recommend
+        food_random = Food.objects(dish = query_food_with_id.dish, season = query_food_with_id.season, checked=True)
+        all_data = list((food_random))
+        shuffle(all_data)
+        save_food = all_data[:5]
+        return render_template("pagecon2.html", food = query_food_with_id, user_current = user_current,  _flag = _flag, saved=saved, author_with_id = author_with_id, recommend = save_food)
     elif request.method == "POST":
         form = request.form
         if form['contribute'] == "3":

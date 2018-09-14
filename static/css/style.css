@@ -59,6 +59,15 @@ body {
   font-style: italic;
   font-size: 20px;
 }
+
+#main #side-column .side-column-item {
+  transition: transform .2s;
+}
+
+#main #side-column .side-column-item:hover {
+  transform: scale(1.1);
+}
+
 .fourSeason{
   width:500px;
   height: 275px;

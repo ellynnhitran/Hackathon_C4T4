@@ -35,26 +35,14 @@
 
         <div id ="main">
         <div id="side-column">
-            <h2>Có thể bạn quan tâm</h2>
-            <div class="side-column-item">
-                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
-                <h3>{{food.title}}</h3>
+            <h2 class="text-center">Có thể bạn quan tâm</h2>
+            {% for f in recommend %}
+            <div class="side-column-item d-flex justify-content-center align-items-center flex-column">
+                <a href="{{url_for('pagecon2', getID = f.id)}}"><img class ="img" src="{{f.img}}"></a>
+                <h3 class="text-center">{{f.title}}</h3>
                 <div class = "line"></div>
             </div>
-
-            <div class="side-column-item">
-                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
-                <h3>{{food.title}}</h3>
-                <div class = "line"></div>
-            </div>
-
-            <div class="side-column-item">
-                <a href="{{url_for('pagecon2', getID = food.id)}}"><img class ="img" src="{{food.img}}"></a>
-                <h3>{{food.title}}</h3>
-                <div class = "line"></div>
-                <!-- <img src="https://via.placeholder.com/140x100" alt="Món ăn">
-                <h3>Món ăn</h3> -->
-            </div>
+            {% endfor %}
         </div>
         <!-- {% for food in list_food_dinner_html %}
         <div class = "column-content">
