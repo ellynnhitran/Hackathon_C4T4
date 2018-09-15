@@ -15,6 +15,7 @@
                           <div id="root">
                  <form action="" method = "POST" id="form">
                     <div id="post-content">
+                            <input type="text" style="display: none" name="contribute" value="3">
                             <div class="form-group">
                                     <label for="">Tên món</label> <br>
                                     <input type="text" name = "Title" class="block">
@@ -27,16 +28,35 @@
                                 
                                 <div class="form-group">
                                     <label for="">Nguyên liệu</label> <br>
-                                    <textarea name="content" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="nguyenlieu" id="" cols="30" rows="10"></textarea>
                     
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Cách làm</label> <br>
-                                    <textarea name="content" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="cachlam" id="" cols="30" rows="10"></textarea>
                     
                                 </div>
-                                <button class="btn">Gửi</button>
+
+                              <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Bữa</label>
+                                    <select name="dish" class="form-control" id="exampleFormControlSelect1">
+                                        <option value="breakfast">Breakfast</option>
+                                        <option value="lunch">Lunch</option>
+                                        <option value="dinner">Dinner</option>
+                                    </select>
+                            </div>
+                    
+                            <div class="form-group">
+                                    <label for="2">Mùa</label>
+                                    <select name="season" class="form-control" id="2">
+                                        <option value="spring">Spring</option>
+                                        <option value="lunch">Summer</option>
+                                        <option value="autumn">Autumn</option>
+                                        <option value="winter">Winter</option>
+                                    </select>
+                            </div>
+                                <button type="submit" class="btn">Gửi</button>
                             </form>
                     </div>
             <div class="modal-footer">
@@ -54,10 +74,9 @@
                       <div id = "header">
                                   <h2 id="post-title">Các bạn hãy login để có thể đóng góp thêm món ăn nhé :') </h2>
                               </div>
-                            <div id="root">
-          
-                              <a href="{{url_for('login')}}"><button type="button" class="btn btn-primary">Login</button></a>
-                              <a href="{{url_for('signup')}}"><button type="button" class="btn btn-primary">Sign Up</button></a>
+                            <div id="root" class="justify-content-around">
+                              <a href="{{url_for('login')}}"><button type="button" class="m-3 btn btn-primary">Login</button></a>
+                              <a href="{{url_for('signup')}}"><button type="button" class="m-3 btn btn-primary">Sign Up</button></a>
                             </div>  
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

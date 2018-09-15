@@ -19,12 +19,18 @@
 
             <div id="post-content" >
                 <img src="{{food.img}}" alt="Món ăn">
-                <h4>**Nguyên liệu: {{food.nguyenlieu}}</h4>
-                <h4>**Cách làm: {{food.cachlam}}</h4>
-          
+                <h4>Nguyên liệu: {{food.nguyenlieu}}</h4>
+                <h4>Cách làm: {{food.cachlam}}</h4>
+                {% if author_with_id != {} %}
+                <h6>Người viết: {{author_with_id.first_name}} {{author_with_id.last_name}} - Email: {{author_with_id.email}}</h6>
+                {% endif %}
+             {% if saved %}
+             <button id="button" class="btn btn-primary disabled">Đã lưu </button>
+             {% else %}
              <a href="{{url_for('fav', id = food.id)}}"><button id="button" class="btn btn-primary">Lưu món này ^^ </button></a>
-          
-            </div>
+             {% endif %}
+        </div>
+        
         
        
          
@@ -51,8 +57,6 @@
                
             </div>
         </div>
-        
-
         <!-- {% for food in list_food_dinner_html %}
         <div class = "column-content">
             <div class="column-item">
