@@ -32,7 +32,7 @@ body{
 #main {
     width: 230px;
     margin-left:30px;
-    padding-top: 100px;
+    padding-top: 32px;
 
 }
 h4{
@@ -48,7 +48,7 @@ h4{
 #main_panel {
     display: wrap;
     flex-basis: 100%;
-    /* overflow-y: scroll */
+    
 }
 #header {
     align-items: center;
