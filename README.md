@@ -2,6 +2,8 @@
 ```
 Tran Tue Nhi
 ```
+This script runs using Python 3.
+
 ## Overview
 
 **Healthy Foodie website: Solve the problem of nutritional imbalance in Vietnam (by Macrobiotic Diet)**
