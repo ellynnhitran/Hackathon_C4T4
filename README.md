@@ -1,6 +1,6 @@
 # Techkids_Hackathon_C4T4
 ```
-Tran Tue Nhi
+Tran Tue Nhi, Nguyen Mai Phuong, Tran Phuong Anh, Pham Quy Don.
 ```
 This script runs using Python 3.
 
