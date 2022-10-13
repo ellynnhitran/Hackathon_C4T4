@@ -7,8 +7,10 @@ This script runs using Python 3.
 ## Overview
 
 **Healthy Foodie website: Solve the problem of nutritional imbalance in Vietnam (by Macrobiotic Diet)**
-* Please welcome to my website: 
-[Healthy Foodie](https://healthy-foodie.herokuapp.com/)
+
+* You can watch the website demo here:
+https://www.youtube.com/watch?v=AqopdNuHJuU
+
 * For this project, I learned and explored website programming, from HTML, CSS, Javascript, Bootstrap to how to crawl data, deploy apps in Heruko.
 
 ## File Structure
